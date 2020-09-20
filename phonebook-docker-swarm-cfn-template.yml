@@ -211,9 +211,9 @@ Resources:
               curl -o "init.sql" -L ${GIT_FILE_URL}init.sql
               docker-compose config | docker stack deploy --with-registry-auth -c - phonebook
             - ECR_REGISTRY: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com
-              APP_REPO_NAME: clarusway-repo/phonebook-app
-              GITHUB_REPO: https://github.com/callahan-cw/203.git
-              GIT_FILE_URL: https://raw.githubusercontent.com/callahan-cw/203/master/
+              APP_REPO_NAME: david-repo/phonebook-app
+              GITHUB_REPO: https://github.com/DavidChatak/203dockerswarm
+              GIT_FILE_URL: https://raw.githubusercontent.com/DavidChatak/203dockerswarm/master/
   DockerManager2:
     Type: AWS::EC2::Instance
     DependsOn:
