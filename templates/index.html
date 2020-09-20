@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarusway Project - 004</title>
+  <title>Clarusway Project - 002</title>
   <style>
     body {
       max-width: 600px;
@@ -12,7 +12,7 @@
     }
 
     div {
-      margin-top: 100px;
+      margin-top: 10px;
       margin-bottom: 50px;
       margin-right: auto;
       margin-left: auto;
@@ -62,27 +62,30 @@
 
 <body>
 
-  <div><img src="https://clarusway.com/wp-content/uploads/2020/06/clarusway_logo.png" /></div>
+  <div><img src="https://david-bucket-com.s3.eu-west-3.amazonaws.com/logo.png" /></div>
 
   <h1>Project : Phonebook Application</h1>
   <h2>Welcome to {{developer_name}}'s Phonebook Application</h2>
   <h2 class="sectionnote">Enter a name to search</h2>
 
-  <form action="#" method="post">
+  <form action="/index" method="post">
     <label for="name"><b>Name:</b></label>
     <input placeholder="Keyword" type="text" name="username" id="name">
     <button type="submit">Search</button>
+    <a href={{url_for("add_up",action="add")}}>add new person</a>
+    <a href={{url_for("add_up",action="update")}}>update a person</a>
+    <a href={{url_for("delete")}}>delete person</a>
     {% if show_result %}
-        <h1>Result for '{{ keyword }}' </h1>
-            <ul> 
+        <h1>Result for '{{ name }}' </h1>
+            <ol> 
             {% for person in persons %}
-            <li>Name: <b>{{ person['name'] }} </b>  ---- Phone Number: <b>{{ person['number'] }}</b></li>
+            <li>Name: <b>{{ person[0] }} </b>  ---- Phone Number: <b>{{ person[1] }}</b></li>
             {% endfor %}
-            </ul>
+            </ol>
     {% endif %}
+  
   </form>
-
+  <p>{{note}}</p>
   <p class="footnote"><i>This app is developed in Python by <b>{{ developer_name }}</b> and deployed with Flask on AWS Cloud using Clouldformation Service.</i></p>
 </body>
-
 </html>
