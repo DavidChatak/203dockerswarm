@@ -55,7 +55,7 @@ def check(word,num):
     cursor.execute("select * from persons")
     res = cursor.fetchall()
     res= [row[1] for row in res]
-    message=Falseif word in res:
+    message=False if word in res:
         message="it exists already..."
         return message
     if not any([j.isdecimal() for j in str(num)]):
